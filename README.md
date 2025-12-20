@@ -13,11 +13,13 @@ The quiz is aimed at school children to practise their times tables. A button is
 - JavaScript: Functions, arrays, random numbers, do while loops, events, for loops
 
 ## Opportunities for Developement
-Add settings so the user could choose for example:
-- the contrast colour (currently green)
-- theme: light or dark mode (currently dark)
-- the upper multiple (currently 12)
-- to have questions only from a single multiple e.g. just the nine x table or just the four x table.
+1. Add settings so the user could choose for example:
+    - the contrast colour (currently green)
+    - theme: light or dark mode (currently dark)
+    - the upper multiple (currently 12)
+    - to have questions only from a single multiple e.g. just the nine x table or just the four x table.
+2. Use local storage so settings data persists after a session is closed.
+3. Investigate the potential for accessibility for people with visual impairments.
 
 
 Frances Hitchcock December 2025

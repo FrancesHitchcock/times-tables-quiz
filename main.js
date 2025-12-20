@@ -8,8 +8,8 @@ document.addEventListener("click", chooseAnswer)
 
 // generate two operands for the multiplication fact and calculate the product
 function getNewFact() {
-    const num1 = getRandomNum(upperMultiple)
-    const num2 = getRandomNum(12)
+    const num1 = getRandomNum(12)
+    const num2 = getRandomNum(upperMultiple)
     factTextElem.textContent = `${num1} x ${num2}`
 
     const correctAnswer = num1 * num2
@@ -35,12 +35,11 @@ function populateButtonText(correctAnswer) {
             // we do not want a random answer to be the same as the correct answer
             let randomAnswer
             do {
-                randomAnswer = getRandomNum(upperMultiple * 12)
+                randomAnswer = getRandomNum(12 * upperMultiple)
                 responseButtonsArr[i].textContent = randomAnswer
             } while (
                 randomAnswer === correctAnswer
             )
-            
         }
     }
 }
