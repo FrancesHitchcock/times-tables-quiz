@@ -1,10 +1,16 @@
 const nextQuestionBtn = document.getElementById("next-question-btn")
 const factTextElem = document.getElementById("fact-text-elem")
 const responseButtonsArr = document.querySelectorAll(".response-btn")
+const modeButton = document.getElementById("mode-btn")
 const upperMultiple = 12
 
 nextQuestionBtn.addEventListener("click", getNewFact)
 document.addEventListener("click", chooseAnswer)
+modeButton.addEventListener("change", changeMode)
+
+function changeMode() {
+    document.documentElement.classList.toggle("dark-mode", modeButton.checked);
+}
 
 // generate two operands for the multiplication fact and calculate the product
 function getNewFact() {

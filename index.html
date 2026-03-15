@@ -8,24 +8,37 @@
 </head>
 <body>
     <div id="wrapper">
-         <div class="inner-section" id="title-container">
+      <header>
+         <!-- <div class="section" id="mode-btn">
+
+         </div> -->
+         <label class="toggle">
+            <input id="mode-btn" type="checkbox">
+            <span class="slider"></span>
+         </label>
+
+      </header>
+      <main>
+         <section class="section" id="title-container">
             <h1 id="primary-heading">Times Tables</h1>
             <h2 id="secondary-heading">Quiz</h2>
             <p id="instructions">Generate a multiplication fact and click on the right answer for a colourful surprise!</p>
-         </div>
-         <div class="inner-section" id="fact-container">
+         </section>
+         <section class="section" id="fact-container">
             <div id="fact">
                 <p id="fact-text-elem">?</p>
             </div>
-         </div>
-         <div class="inner-section" id="response-container">
+         </section>
+         <section class="section" id="response-container">
             <button class="response-btn">?</button>
             <button class="response-btn">?</button>
             <button class="response-btn">?</button>
-         </div>
-         <div class="inner-section" id="new-fact-btn-container">
+         </section>
+         <section class="section" id="new-fact-btn-container">
             <button id="next-question-btn">New fact</button>                    
-         </div>
+         </section>
+      </main>
+
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>

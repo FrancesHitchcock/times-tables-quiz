@@ -4,6 +4,28 @@ html {
     background-color: #1C1C1C;
 }
 
+:root {
+    --background-color: #ECFDF5;
+    --text-color: #111827;
+    --secondary-text-color: #6B7280;
+}
+
+
+/* The site automatically adapt its theme to match the user's browser / operating system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1F2937;
+    --text-color: #fff;
+    --secondary-text-color: #D5D4D8;
+  }
+}
+
+html.dark-mode {
+    --background-color: #1F2937;
+    --text-color: #fff;
+    --secondary-text-color: #D5D4D8;
+}
+
 body {
     color: #FFFFFF;
     margin: 0;
@@ -23,25 +45,32 @@ button {
 
 #wrapper {
     width: 700px;
-    height: 550px;
-    background-color: #1F2937;
+    height: 600px;
+    background-color: var(--background-color);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
-.inner-section {
+header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.section {
     padding: 10px 20px;
 }
 
 #primary-heading {
     font-size: 40px;
     margin: 0;
+    color: var(--text-color);
 }
 
 #fact-container {
     text-align: center;
+    color: var(--text-color);
 }
 
 #secondary-heading {
@@ -52,7 +81,7 @@ button {
 
 #instructions {
     font-size: 20px;
-    color: #D5D4D8;
+    color: var(--secondary-text-color);
 }
 
 #fact {
@@ -106,9 +135,54 @@ button {
 }
 
 #next-question-btn:hover {
-    border: 2px solid #FFFFFF;
+    border: 2px solid var(--text-color);
 }
 
 #next-question-btn:active {
-    box-shadow: 0 0 10px #FFFFFF;
+    box-shadow: 0 0 10px var(--text-color);
+}
+
+/* Mode Button */
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  margin-right: 20px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 26px;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
 }
