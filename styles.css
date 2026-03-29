@@ -1,14 +1,33 @@
 
-html {
-    margin: 0;
-    background-color: #1C1C1C;
+:root {
+    --background-color: #ECFDF5;
+    --body-background-color: #EEE;
+    --text-color: #111827;
+    --secondary-text-color: #6B7280;
+}
+
+/* The site automatically adapt its theme to match the user's browser / operating system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1F2937;
+    --body-background-color: #1C1C1C;
+    --text-color: #fff;
+    --secondary-text-color: #D5D4D8;
+  }
+}
+
+html.dark-mode {
+    --background-color: #1F2937;
+    --body-background-color: #1C1C1C;
+    --text-color: #fff;
+    --secondary-text-color: #D5D4D8;
 }
 
 body {
     color: #FFFFFF;
     margin: 0;
     height: 100vh;
-    background-color: #1C1C1C;
+    background-color: var(--body-background-color);
     text-align: left;
     display: flex;
     justify-content: center;
@@ -23,25 +42,32 @@ button {
 
 #wrapper {
     width: 700px;
-    height: 550px;
-    background-color: #1F2937;
+    height: 600px;
+    background-color: var(--background-color);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
-.inner-section {
+header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.section {
     padding: 10px 20px;
 }
 
 #primary-heading {
     font-size: 40px;
     margin: 0;
+    color: var(--text-color);
 }
 
 #fact-container {
     text-align: center;
+    color: var(--text-color);
 }
 
 #secondary-heading {
@@ -52,7 +78,7 @@ button {
 
 #instructions {
     font-size: 20px;
-    color: #D5D4D8;
+    color: var(--secondary-text-color);
 }
 
 #fact {
@@ -106,9 +132,59 @@ button {
 }
 
 #next-question-btn:hover {
-    border: 2px solid #FFFFFF;
+    border: 2px solid var(--text-color);
 }
 
 #next-question-btn:active {
-    box-shadow: 0 0 10px #FFFFFF;
+    box-shadow: 0 0 10px var(--text-color);
+}
+
+/* Mode Button */
+
+.ctrl-button-container{
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle p {
+    margin: 0;
+}
+
+#mode-btn {
+    display: none;
+}
+
+.mode-icon {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.mode-icon svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mode-icon svg:last-child {
+    opacity: 0;
+}
+
+#mode-btn:checked + .mode-icon svg:first-child {
+    opacity: 0;
+}
+
+#mode-btn:checked + .mode-icon svg:last-child {
+    opacity: 1;
 }
